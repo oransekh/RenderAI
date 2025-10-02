@@ -28,7 +28,7 @@
     </header>
 
     <!-- main content -->
-    <main class="w-full overflow-hidden bg-[#0e0516]">
+    <main class="w-full overflow-hidden">
       <!-- hero section -->
       <section
         class="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-32 min-h-screen text-white"
@@ -151,63 +151,255 @@
         </div>
       </section>
 
+      <!-- about section -->
       <section
-        class="relative flex flex-col items-center px-4 md:px-16 lg:px-24 xl:px-32 min-h-screen text-white"
+        class="relative flex flex-col items-center min-h-screen px-4 md:px-16 lg:px-24 xl:px-32 text-white py-24"
       >
-        <!-- heading  -->
-
-        <div class="text-center">
-          <h1 class="text-5xl">How it's work</h1>
-          <p>turn your imagation into reality</p>
+        <!-- Heading -->
+        <div class="text-center space-y-5 max-w-2xl">
+          <h1 class="text-3xl md:text-5xl font-bold">How It Works</h1>
+          <p class="text-slate-200 text-sm md:text-base">
+            Transfrom Words Into Stunning Images
+          </p>
         </div>
 
         <!-- cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 py-7">
-
           <!-- card 1 -->
           <div
-            class="bg-[#1a0b24] border border-slate-800 rounded-xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition"
+            class="bg-[#1a0b24] border border-slate-800 rounded-2xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out"
           >
-            <h3 class="text-white text-xl font-semibold mb-2">Card Title</h3>
-            <p class="text-slate-300 mb-4">
-              This is some card description text that looks nice on dark
-              backgrounds.
+            <!-- Icon -->
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-purple-600/20 text-purple-400 rounded-xl mb-4"
+            >
+              <i class="fa-solid fa-eye text-lg"></i>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-white text-xl font-semibold mb-3">
+              Describe Your Vision
+            </h3>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
+              "Type a phase, sentence, or pragraph that describes the images you
+              want to create."
             </p>
-            <button class="bg-[#9333ea] text-white px-4 py-2 rounded-lg">
-              Learn More
-            </button>
           </div>
 
           <!-- card 2 -->
           <div
-            class="bg-[#1a0b24] border border-slate-800 rounded-xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition"
+            class="bg-[#1a0b24] border border-slate-800 rounded-2xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out"
           >
-            <h3 class="text-white text-xl font-semibold mb-2">Card Title</h3>
-            <p class="text-slate-300 mb-4">
-              This is some card description text that looks nice on dark
-              backgrounds.
+            <!-- Icon -->
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-purple-600/20 text-purple-400 rounded-xl mb-4"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-white text-xl font-semibold mb-3">
+              Watch the Magic
+            </h3>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
+              "Our AI-Powered engine will transfrom your text into a
+              high-qulity, unique image in few seconds."
             </p>
-            <button class="bg-[#9333ea] text-white px-4 py-2 rounded-lg">
-              Learn More
-            </button>
           </div>
 
           <!-- card 3 -->
           <div
-            class="bg-[#1a0b24] border border-slate-800 rounded-xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition"
+            class="bg-[#1a0b24] border border-slate-800 rounded-2xl p-6 shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out"
           >
-            <h3 class="text-white text-xl font-semibold mb-2">Card Title</h3>
-            <p class="text-slate-300 mb-4">
-              This is some card description text that looks nice on dark
-              backgrounds.
+            <!-- Icon -->
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-purple-600/20 text-purple-400 rounded-xl mb-4"
+            >
+              <i class="fa-solid fa-download"></i>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-white text-xl font-semibold mb-3">
+              Download & Share
+            </h3>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
+              "Instantly download your creation your creation or share it with
+              the world directly from our platfrom."
             </p>
-            <button class="bg-[#9333ea] text-white px-4 py-2 rounded-lg">
-              Learn More
-            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services section -->
+      <section
+        class="relative flex flex-col items-center min-h-screen px-4 md:px-16 lg:px-24 xl:px-32 text-white py-24"
+      >
+        <!-- Heading -->
+        <div class="text-center space-y-5 max-w-2xl">
+          <h1 class="text-3xl md:text-5xl font-bold">Create AI Images</h1>
+          <p class="text-slate-200 text-sm md:text-base">
+            Turn your imagination into visuals
+          </p>
+        </div>
+
+        <!-- Image and Text -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-8 pt-10"
+        >
+          <!-- Image -->
+          <img
+            class="w-full md:w-1/2 max-w-md rounded-xl shadow-lg"
+            src="./src/assets/img/generated-image-0 (3).png"
+            alt="Generated AI"
+          />
+
+          <!-- Context -->
+          <div
+            class="flex flex-col space-y-5 text-center md:text-left max-w-xl"
+          >
+            <h2 class="text-2xl md:text-4xl font-semibold">
+              Introducing the AI-Powered Text to Image Generator
+            </h2>
+            <p class="text-slate-200 leading-relaxed text-sm md:text-base">
+              Easily bring your ideas to life with our free AI image generator.
+              Whether you need stunning visuals or unique imagery, our tool
+              transforms your text into eye-catching images with just a few
+              clicks. Imagine it, describe it, and watch it come to life
+              instantly.
+              <br /><br />
+              Simply type in a text prompt, and our cutting-edge AI will
+              generate high-quality images in seconds. From product visuals to
+              character designs and portraits, even concepts that don't yet
+              exist can be visualized effortlessly. Powered by advanced AI
+              technology, the creative possibilities are limitless!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- our client section -->
+      <section
+        class="relative flex flex-col items-center min-h-screen px-4 md:px-16 lg:px-24 xl:px-32 text-white py-24"
+      >
+        <!-- Heading -->
+        <div class="text-center space-y-5 max-w-2xl">
+          <h1 class="text-3xl md:text-5xl font-bold">Customer testimonials</h1>
+          <p class="text-slate-200 text-sm md:text-base">
+            What Our Users Are Saying
+          </p>
+        </div>
+
+        <!-- dynamic reviews card -->
+        <div id="review-cards" class="grid md:grid-cols-3 grid-cols-1 gap-7 pt-12">
+          <!-- Modern Testimonial Card -->
+          <div
+            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-100 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
+          >
+            <!-- Profile Image -->
+            <img
+              class="h-20 w-20 rounded-full border-4 border-purple-600 shadow-md mb-4"
+              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+              alt="Profile"
+            />
+
+            <!-- Name -->
+            <h3 class="text-white text-lg font-semibold">Donald Jackman</h3>
+
+            <!-- Role -->
+            <h4 class="text-slate-400 text-sm mb-3">Graphic Designer</h4>
+
+            <!-- Rating -->
+            <div class="flex space-x-1 text-yellow-400 mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed">
+              I've been using Imagify for nearly two years, primarily for
+              Instagram, and it has been incredibly user-friendly, making my
+              work much easier.
+            </p>
+          </div>
+          <!-- Modern Testimonial Card -->
+          <div
+            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-100 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
+          >
+            <!-- Profile Image -->
+            <img
+              class="h-20 w-20 rounded-full border-4 border-purple-600 shadow-md mb-4"
+              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+              alt="Profile"
+            />
+
+            <!-- Name -->
+            <h3 class="text-white text-lg font-semibold">Donald Jackman</h3>
+
+            <!-- Role -->
+            <h4 class="text-slate-400 text-sm mb-3">Graphic Designer</h4>
+
+            <!-- Rating -->
+            <div class="flex space-x-1 text-yellow-400 mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed">
+              I've been using Imagify for nearly two years, primarily for
+              Instagram, and it has been incredibly user-friendly, making my
+              work much easier.
+            </p>
+          </div>
+          <!-- Modern Testimonial Card -->
+          <div
+            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-100 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
+          >
+            <!-- Profile Image -->
+            <img
+              class="h-20 w-20 rounded-full border-4 border-purple-600 shadow-md mb-4"
+              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
+              alt="Profile"
+            />
+
+            <!-- Name -->
+            <h3 class="text-white text-lg font-semibold">Donald Jackman</h3>
+
+            <!-- Role -->
+            <h4 class="text-slate-400 text-sm mb-3">Graphic Designer</h4>
+
+            <!-- Rating -->
+            <div class="flex space-x-1 text-yellow-400 mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+
+            <!-- Description -->
+            <p class="text-slate-300 text-sm leading-relaxed">
+              I've been using Imagify for nearly two years, primarily for
+              Instagram, and it has been incredibly user-friendly, making my
+              work much easier.
+            </p>
           </div>
         </div>
       </section>
     </main>
+
     <footer></footer>
 
     <!-- common js -->
