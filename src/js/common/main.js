@@ -27,7 +27,7 @@ function renderReview() {
 
   clientReviews.forEach((card) => {
     renderCard += `   <div
-            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-100 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
+            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-80 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
           >
             <!-- Profile Image -->
             <img
