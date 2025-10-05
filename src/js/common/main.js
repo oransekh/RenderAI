@@ -3,33 +3,51 @@ const mainContent = document.getElementById("main-content");
 
 let artStyle = null;
 let loading = false;
-function imageGenarator() {
-  const image = document.getElementById("img");
-  const textPrompt = document.getElementById("prompt").value;
-  if (textPrompt.trim() === "") return alert("plese write something");
-  const prompt = artStyle.trim() + " " + textPrompt;
 
-  loading = true;
+function imageGenerator() {
+  const image = document.getElementById("img");
+  const loadedanimation = document.getElementById("loadingAnimated");
+  const textPrompt = document.getElementById("prompt").value.trim();
+  const submit = document.getElementById("submit-btn");
+
+  if (textPrompt === "") return alert("Please write something!");
+  if (!artStyle) return alert("Please select an art style first!");
+
+  const prompt = `${artStyle} ${textPrompt}`;
   const encodedPrompt = encodeURIComponent(prompt);
   const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
 
-  //loading the image
-  image.style.display = "block";
-  image.src = "";
-  image.alt = "loading";
+  // Disable button
+  submit.disabled = true;
+  submit.textContent = "Generating...";
+  submit.classList.add("opacity-50", "cursor-not-allowed");
 
-  //load the image
+  // Show loading
+  loading = true;
+  image.style.display = "none";
+  loadedanimation.classList.remove("hidden");
+
+  // Load image
   image.src = imageUrl;
   image.onload = () => {
     loading = false;
-    image.alt = "Genarated image";
+    loadedanimation.classList.add("hidden");
+    image.style.display = "block";
+    image.alt = "Generated image";
+
+    // Re-enable button
+    submit.disabled = false;
+    submit.textContent = "Generate";
+    submit.classList.remove("opacity-50", "cursor-not-allowed");
   };
 }
 
 function rednderall() {
   const buttons = document.querySelectorAll("#btns button");
   const submit = document.getElementById("submit-btn");
-  submit.addEventListener("click", imageGenarator);
+
+  submit.addEventListener("click", imageGenerator);
+
   buttons[0].classList.add("bg-[#9333ea]");
   artStyle = buttons[0].textContent;
   buttons.forEach((btn) => {
