@@ -1,0 +1,94 @@
+<div
+  class="text-white text-2xl flex justify-center items-center lg:mt-10 py-25"
+>
+  <div class="grid md:grid-cols-2 grid-cols-1 max-w-8xl gap-20">
+    <!-- Ai Image Generator -->
+    <div
+      class="bg-[#0e0516] text-white rounded-2xl p-12 w-full max-w-xl mx-auto shadow-lg shadow-purple-900/40"
+    >
+      <!-- Header -->
+      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles text-[#9333ea]"></i>
+        AI Image Generator
+      </h2>
+
+      <!-- Input field -->
+      <div class="mb-5">
+        <label for="prompt" class="block text-sm mb-2 text-slate-300"
+          >Describe Your Image</label
+        >
+        <textarea
+          id="prompt"
+          rows="3"
+          placeholder="Describe what you want to see in the image..."
+          class="w-full bg-[#1a0b24] text-base border border-[#9333ea]/40 text-white placeholder:text-slate-400 rounded-lg p-3 focus:border-[#9333ea] focus:outline-none focus:ring-1 focus:ring-[#9333ea] resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Style selector -->
+      <div class="mb-5">
+        <h3 class="text-sm font-medium mb-2 text-slate-300">Style</h3>
+        <div id="btns" class="flex flex-wrap gap-2">
+          <button
+            class="px-4 py-2 rounded-lg bg-[#9333ea] text-white text-sm font-medium hover:bg-[#7e22ce] transition"
+          >
+            Realistic
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            Ghibli style
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            Anime style
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            Cartoon style
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            Fantasy style
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            3D style
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
+          >
+            Portrait style
+          </button>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <button
+        id="submitBtn"
+        class="w-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2"
+      >
+        <i class="fa-solid fa-image"></i>
+        Generate Image
+      </button>
+    </div>
+
+    <!-- image response -->
+
+    <div
+      class="bg-[#0e0516] text-white rounded-2xl p-12 w-full max-w-xl mx-auto shadow-lg shadow-purple-900/40"
+    >
+      <!-- Header -->
+      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-image text-[#9333ea]"></i>
+        AI Image Generator
+      </h2>
+
+      <img src="" id="image-add" alt="" />
+    </div>
+  </div>
+</div>

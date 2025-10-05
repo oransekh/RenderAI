@@ -1,3 +1,44 @@
+const startBtn = document.getElementById("start-btn");
+const mainContent = document.getElementById("main-content");
+
+let loading = false;
+
+function imageGeneartor() {
+  const promt = document.getElementById("prompt");
+  const imageAdded = document.getElementById("image-add");
+  const encodedPrompt = encodeURIComponent(promt.value);
+  const image = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
+  imageAdded.src = image;
+  promt.value = "";
+}
+
+function rednderall() {
+  const buttons = document.querySelectorAll("#btns button");
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.addEventListener("click", imageGeneartor);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {});
+  });
+}
+
+function toggleDashboard(callback) {
+  fetch("dashboard.html")
+    .then((res) => res.text())
+    .then((data) => {
+      mainContent.innerHTML = data;
+      mainContent.classList.remove("hidden");
+
+      //  Run the callback after HTML is added
+      if (typeof callback === "function") {
+        callback();
+      }
+    })
+    .catch((err) => console.error("Error loading dashboard:", err));
+}
+
+startBtn.addEventListener("click", () => toggleDashboard(rednderall));
+
 function renderReview() {
   // client data
   const clientReviews = [
