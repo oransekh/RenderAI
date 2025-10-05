@@ -30,7 +30,7 @@
         <h3 class="text-sm font-medium mb-2 text-slate-300">Style</h3>
         <div id="btns" class="flex flex-wrap gap-2">
           <button
-            class="px-4 py-2 rounded-lg bg-[#9333ea] text-white text-sm font-medium hover:bg-[#7e22ce] transition"
+            class="px-4 py-2 rounded-lg bg-[#1a0b24] text-sm text-slate-300 border border-[#9333ea]/30 hover:border-[#9333ea] transition"
           >
             Realistic
           </button>
@@ -69,7 +69,7 @@
 
       <!-- Button -->
       <button
-        id="submitBtn"
+        id="submit-btn"
         class="w-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2"
       >
         <i class="fa-solid fa-image"></i>
@@ -87,8 +87,11 @@
         <i class="fa-solid fa-image text-[#9333ea]"></i>
         AI Image Generator
       </h2>
+      <div
+        class="border-2 border-dotted hidden border-purple-600 p-5 h-full w-72 text-white bg-[#0e0516]"
+      ></div>
 
-      <img src="" id="image-add" alt="" />
+      <img src="" class="rounded" id="img" alt="" />
     </div>
   </div>
 </div>

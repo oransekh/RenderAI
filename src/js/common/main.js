@@ -1,24 +1,46 @@
 const startBtn = document.getElementById("start-btn");
 const mainContent = document.getElementById("main-content");
 
+let artStyle = null;
 let loading = false;
+function imageGenarator() {
+  const image = document.getElementById("img");
+  const textPrompt = document.getElementById("prompt").value;
+  if (textPrompt.trim() === "") return alert("plese write something");
+  const prompt = artStyle.trim() + " " + textPrompt;
 
-function imageGeneartor() {
-  const promt = document.getElementById("prompt");
-  const imageAdded = document.getElementById("image-add");
-  const encodedPrompt = encodeURIComponent(promt.value);
-  const image = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
-  imageAdded.src = image;
-  promt.value = "";
+  loading = true;
+  const encodedPrompt = encodeURIComponent(prompt);
+  const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
+
+  //loading the image
+  image.style.display = "block";
+  image.src = "";
+  image.alt = "loading";
+
+  //load the image
+  image.src = imageUrl;
+  image.onload = () => {
+    loading = false;
+    image.alt = "Genarated image";
+  };
 }
 
 function rednderall() {
   const buttons = document.querySelectorAll("#btns button");
-  const submitBtn = document.getElementById("submitBtn");
-  submitBtn.addEventListener("click", imageGeneartor);
-
+  const submit = document.getElementById("submit-btn");
+  submit.addEventListener("click", imageGenarator);
+  buttons[0].classList.add("bg-[#9333ea]");
+  artStyle = buttons[0].textContent;
   buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {});
+    btn.addEventListener("click", () => {
+      buttons.forEach((btn) => {
+        btn.classList.remove("bg-[#9333ea]");
+      });
+
+      btn.classList.add("bg-[#9333ea]");
+      artStyle = btn.textContent;
+    });
   });
 }
 
