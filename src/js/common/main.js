@@ -100,20 +100,20 @@ function renderReview() {
     {
       img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
       name: "Rahul Sharma",
-      role: "Startup Founder",
-      dec: "Working with Yolopment was a fantastic experience.",
+      role: "Content Creator",
+      dec: "Render AI made my creative process so much easier! I can generate stunning visuals for my posts within seconds.",
     },
     {
       img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format",
       name: "Sophia Dutta",
-      role: "Marketing Manager",
-      dec: "The team created a digital marketing strategy that boosted our sales.",
+      role: "Graphic Designer",
+      dec: "I love how simple and fast Render AI is. The art styles look professional, and I can experiment endlessly for free!",
     },
     {
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format",
       name: "Arjun Mehta",
-      role: "Small Business Owner",
-      dec: "Great communication and professional work.",
+      role: "Startup Founder",
+      dec: "Render AI helped me visualize ideas for my brand quickly. The dashboard is easy to use and the results are amazing!",
     },
   ];
 
