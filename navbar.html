@@ -1,0 +1,33 @@
+<header
+  class="fixed top-0 left-0 w-full flex backdrop-blur-xs justify-between px-6 md:px-24 lg:px-24 z-10 py-4 items-center bg-transparent"
+>
+  <!-- logo -->
+  <img src="./src/assets/logo/logo.png" class="h-7" alt="RenderAi" />
+
+  <!-- button start -->
+  <button
+    id="button-out"
+    class="bg-purple-600 hover:bg-purple-700 text-slate-200 rounded-full px-7 h-9"
+  >
+    Get started <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+  <!-- loin & sign-up profile -->
+  <div id="profile-div" class="relative hidden">
+    <img
+      id="profile"
+      class="h-8 w-8 z-10 rounded-[100vh]"
+      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+      alt="profile"
+    />
+
+    <div id="log-out" class="absolute z-10 right-0 top-10 hidden">
+      <button
+        id="logout-btn"
+        class="bg flex justify-center items-center flex-nowrap bg-[#9810fa] hover:bg-[#730dbd] transition-colors duration-150 px-3 py-2 rounded text-slate-300 text-base"
+      >
+        Logout <i class="fa-solid fa-right-from-bracket px-2.5"></i>
+      </button>
+    </div>
+  </div>
+</header>

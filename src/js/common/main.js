@@ -1,12 +1,49 @@
-const startBtn = document.getElementById("start-btn");
 const mainContent = document.getElementById("main-content");
-
+const navbar = document.getElementById("navbar");
 let artStyle = null;
 let loading = false;
 
+//function navbar loader
+function Navbar(page, callback) {
+  fetch(page)
+    .then((res) => {
+      if (!res.ok) throw new Error(`Failed to load ${page}`);
+      return res.text();
+    })
+    .then((data) => {
+      navbar.innerHTML = data;
+
+      // Run callback only AFTER content is added
+      if (typeof callback === "function") callback();
+      renderContent();
+    });
+}
+Navbar("navbar.html");
+
+//  Function to load any HTML page
+function loadPage(page, callback) {
+  fetch(page)
+    .then((res) => {
+      if (!res.ok) throw new Error(`Failed to load ${page}`);
+      return res.text();
+    })
+    .then((data) => {
+      mainContent.innerHTML = data;
+      window.scrollTo(0, 0); // scroll to top
+
+      // Run callback only AFTER content is added
+      if (typeof callback === "function") callback();
+    })
+    .catch((err) => {
+      console.error(err);
+      mainContent.innerHTML = `<p class="text-red-500">Error loading ${page}</p>`;
+    });
+}
+
+//  Image Generator
 function imageGenerator() {
   const image = document.getElementById("img");
-  const loadedanimation = document.getElementById("loadingAnimated");
+  const loadingAnim = document.getElementById("loadingAnimated");
   const textPrompt = document.getElementById("prompt").value.trim();
   const submit = document.getElementById("submit-btn");
 
@@ -14,132 +51,146 @@ function imageGenerator() {
   if (!artStyle) return alert("Please select an art style first!");
 
   const prompt = `${artStyle} ${textPrompt}`;
-  const encodedPrompt = encodeURIComponent(prompt);
-  const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
+  const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+    prompt
+  )}`;
 
-  // Disable button
   submit.disabled = true;
   submit.textContent = "Generating...";
   submit.classList.add("opacity-50", "cursor-not-allowed");
 
-  // Show loading
-  loading = true;
   image.style.display = "none";
-  loadedanimation.classList.remove("hidden");
+  loadingAnim.classList.remove("hidden");
 
-  // Load image
   image.src = imageUrl;
   image.onload = () => {
-    loading = false;
-    loadedanimation.classList.add("hidden");
+    loadingAnim.classList.add("hidden");
     image.style.display = "block";
-    image.alt = "Generated image";
 
-    // Re-enable button
     submit.disabled = false;
     submit.textContent = "Generate";
     submit.classList.remove("opacity-50", "cursor-not-allowed");
   };
 }
 
-function rednderall() {
+//  Button & Style Logic
+function renderAll() {
   const buttons = document.querySelectorAll("#btns button");
   const submit = document.getElementById("submit-btn");
+
+  if (!buttons.length || !submit) return; // avoid error if not present
 
   submit.addEventListener("click", imageGenerator);
 
   buttons[0].classList.add("bg-[#9333ea]");
   artStyle = buttons[0].textContent;
+
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      buttons.forEach((btn) => {
-        btn.classList.remove("bg-[#9333ea]");
-      });
-
+      buttons.forEach((b) => b.classList.remove("bg-[#9333ea]"));
       btn.classList.add("bg-[#9333ea]");
       artStyle = btn.textContent;
     });
   });
 }
 
-function toggleDashboard(callback) {
-  fetch("dashboard.html")
-    .then((res) => res.text())
-    .then((data) => {
-      mainContent.innerHTML = data;
-      mainContent.classList.remove("hidden");
-
-      //  Run the callback after HTML is added
-      if (typeof callback === "function") {
-        callback();
-      }
-    })
-    .catch((err) => console.error("Error loading dashboard:", err));
-}
-
-startBtn.addEventListener("click", () => toggleDashboard(rednderall));
-
+//  Render Review Cards
 function renderReview() {
-  // client data
   const clientReviews = [
     {
       img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
       name: "Rahul Sharma",
       role: "Startup Founder",
-      dec: "Working with Yolopment was a fantastic experience. They delivered our website on time with a clean and modern design.",
+      dec: "Working with Yolopment was a fantastic experience.",
     },
     {
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format",
       name: "Sophia Dutta",
       role: "Marketing Manager",
-      dec: "The team understood our needs perfectly and created a digital marketing strategy that boosted our sales.",
+      dec: "The team created a digital marketing strategy that boosted our sales.",
     },
     {
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format",
       name: "Arjun Mehta",
       role: "Small Business Owner",
-      dec: "Great communication and professional work. I highly recommend them for web development and branding services.",
+      dec: "Great communication and professional work.",
     },
   ];
 
   const renderDiv = document.getElementById("review-cards");
+  if (!renderDiv) return;
 
-  let renderCard = "";
-
-  clientReviews.forEach((card) => {
-    renderCard += `   <div
-            class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-80 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform duration-300 ease-in-out "
-          >
-            <!-- Profile Image -->
-            <img
-              class="h-20 w-20 rounded-full border-4 border-purple-600 shadow-md mb-4"
-              src="${card.img}"
-              alt="Profile"
-            />
-
-            <!-- Name -->
-            <h3 class="text-white text-lg font-semibold">${card.name}</h3>
-
-            <!-- Role -->
-            <h4 class="text-slate-400 text-sm mb-3">${card.role}</h4>
-
-            <!-- Rating -->
-            <div class="flex space-x-1 text-yellow-400 mb-4">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-
-            <!-- Description -->
-            <p class="text-slate-300 text-sm leading-relaxed">
-             ${card.dec}
-            </p>
-          </div>`;
-  });
-
-  renderDiv.innerHTML = renderCard;
+  renderDiv.innerHTML = clientReviews
+    .map(
+      (c) => `
+      <div class="bg-[#1a0b24] flex flex-col items-center text-center border border-slate-800 rounded-2xl p-10 md:w-80 w-full shadow-lg shadow-purple-900/30 hover:bg-[#241032] hover:scale-[1.02] transition-transform">
+        <img class="h-20 w-20 rounded-full border-4 border-purple-600 shadow-md mb-4" src="${c.img}" alt="${c.name}" />
+        <h3 class="text-white text-lg font-semibold">${c.name}</h3>
+        <h4 class="text-slate-400 text-sm mb-3">${c.role}</h4>
+        <div class="flex space-x-1 text-yellow-400 mb-4">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">${c.dec}</p>
+      </div>`
+    )
+    .join("");
 }
 
-document.addEventListener("DOMContentLoaded", renderReview);
+//  Home Page
+function loadHome() {
+  loadPage("mainAllContent.html", () => {
+    renderReview();
+    renderContent();
+    Navbar("navbar.html");
+  });
+}
+
+//  Dashboard Page
+function loadDashboard() {
+  loadPage("dashboard.html", () => {
+    renderAll();
+  });
+}
+
+//  Logout
+function logout() {
+  loadHome(); // back to main home content
+}
+
+//  Start the site with Home
+loadHome();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login-form");
+  const signForm = document.getElementById("sign-form");
+  const fromActive = document.getElementById("from-Active");
+
+  const openLogin = document.getElementById("open-login");
+  const openSignup = document.getElementById("open-signup");
+  const closeLogin = document.getElementById("close-login");
+  const closeSignup = document.getElementById("close-signup");
+
+  // Open Login Form
+  openLogin.addEventListener("click", () => {
+    signForm.classList.add("hidden");
+    loginForm.classList.remove("hidden");
+    fromActive.classList.remove("hidden");
+  });
+
+  // Open Sign-Up Form
+  openSignup.addEventListener("click", () => {
+    loginForm.classList.add("hidden");
+    signForm.classList.remove("hidden");
+    fromActive.classList.remove("hidden");
+  });
+
+  // Close Login Form
+  closeLogin.addEventListener("click", () => {
+    fromActive.classList.add("hidden");
+  });
+
+  // Close Sign-Up Form
+  closeSignup.addEventListener("click", () => {
+    fromActive.classList.add("hidden");
+  });
+});
